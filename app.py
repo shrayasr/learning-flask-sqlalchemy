@@ -4,7 +4,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/shrayas/code/hacks/learning-flask-sqlalchemy/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/testflasksqlalchemy'
 db = SQLAlchemy(app)
 
 class User(db.Model):
