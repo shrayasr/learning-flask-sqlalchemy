@@ -50,7 +50,7 @@ class Items(db.Model):
     pubdate = db.Column(db.DateTime)
 
     feed = db.relationship('Feeds', 
-            backref = db.backref('items', lazy='dynamic'))
+            backref = db.backref('items', cascade='all, delete-orphan', lazy='dynamic'))
 
     def __init__(self, feed, title, description, link, guid, guid_hash, 
             pub_date):
