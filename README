@@ -4,3 +4,11 @@ Links
 =====
 
 - https://pythonhosted.org/Flask-SQLAlchemy/index.html
+- http://docs.sqlalchemy.org/en/rel_0_9/orm/relationships.html
+- https://pythonhosted.org/Flask-SQLAlchemy/models.html
+- http://www.databaseprimer.com/pages/relationship_1tox/
+- http://www.databaseprimer.com/pages/relationship_xtox/
+- http://stackoverflow.com/questions/5756559/how-to-build-many-to-many-relations-using-sqlalchemy-a-good-example
+- http://www.rmunn.com/sqlalchemy-tutorial/tutorial-0.1.html
+- http://stackoverflow.com/questions/19436020/flask-sqlalchemy-querying-many-to-many
+- http://alextechrants.blogspot.fi/2013/08/unit-testing-sqlalchemy-apps.html
