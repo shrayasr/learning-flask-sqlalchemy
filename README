@@ -12,3 +12,6 @@ Links
 - http://www.rmunn.com/sqlalchemy-tutorial/tutorial-0.1.html
 - http://stackoverflow.com/questions/19436020/flask-sqlalchemy-querying-many-to-many
 - http://alextechrants.blogspot.fi/2013/08/unit-testing-sqlalchemy-apps.html
+- http://stackoverflow.com/questions/12593421/sqlalchemy-and-flask-how-to-query-many-to-many-relationship
+- https://www.mail-archive.com/sqlalchemy@googlegroups.com/msg18611.html
+- http://stackoverflow.com/questions/10115092/sql-alchemy-return-list-of-ids
