@@ -8,11 +8,16 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/rsswala_test'
 db = SQLAlchemy(app)
 
-class Users(db.Model):
+UserFeeds = db.Table('user_feeds',
+        db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+        db.Column('feed_id', db.Integer, db.ForeignKey('feed.id'))
+        )
+
+class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True)
-    password = db.Column(db.String(32), unique=True)
+    password = db.Column(db.String(32))
 
     def __init__(self, email, password):
         self.email = email
@@ -21,35 +26,39 @@ class Users(db.Model):
     def __repr__(self):
         return '<User %r>' % self.email
 
-class Feeds(db.Model):
+class Feed(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     feed_url = db.Column(db.String(120), unique=True)
-    title = db.Column(db.String(120), unique=True)
+    title = db.Column(db.String(120))
     description = db.Column(db.Text)
-    link = db.Column(db.String(120), unique=True)
+    link = db.Column(db.String(120))
 
-    def __init__(self, feed_url, title, description, link):
+    users = db.relationship('User', secondary=UserFeeds,
+            backref = db.backref('feeds', lazy='dynamic'))
+
+    def __init__(self, feed_url, title, description, link, user):
         self.feed_url = feed_url
         self.title = title
         self.description = description
         self.link = link
+        self.users.append(user)
 
     def __repr__(self):
         return '<Feed %r %r>' % (self.feed_url, self.title)
 
-class Items(db.Model):
+class Item(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
+    feed_id = db.Column(db.Integer, db.ForeignKey('feed.id'))
     title = db.Column(db.String(120))
     description = db.Column(db.Text)
     link = db.Column(db.String(120))
     guid = db.Column(db.String(120), unique=True)
     guid_hash = db.Column(db.String(32), unique=True)
-    pubdate = db.Column(db.DateTime)
+    pub_date = db.Column(db.DateTime)
 
-    feed = db.relationship('Feeds', 
+    feed = db.relationship('Feed', 
             backref = db.backref('items', cascade='all, delete-orphan', lazy='dynamic'))
 
     def __init__(self, feed, title, description, link, guid, guid_hash, 
@@ -60,60 +69,8 @@ class Items(db.Model):
         self.link = link
         self.guid = guid
         self.guid_hash = guid_hash
-        self.pub_date = pub_date
+        self.pub_date = datetime.strptime(pub_date, "%Y-%m-%d")
 
     def __repr__(self):
         return '<Item %r %r>' % (self.title, self.feed)
 
-"""
-  `user_id` bigint(20) unsigned NOT NULL,
-  `feed_id` bigint(20) unsigned NOT NULL,
-  `subscription_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-
-class UserFeeds(db.Model):
-
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
-
-    user = db.relationship
-
-    subscription_date = db.Column(db.DateTime)
-
-    def __init__(self, user_id, feed_id, subscription_date=None):
-        self.user_id = user_id
-        self.feed_id = feed_id
-        self.subscription_date = subscription_date
-
-class Post(db.Model):
-
-    id = db.Column(db.Integer,primary_key=True)
-    title = db.Column(db.String(80))
-    body = db.Column(db.Text)
-    pub_date = db.Column(db.DateTime)
-
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
-    category = db.relationship('Category', 
-            backref = db.backref('posts', lazy='dynamic'))
-
-    def __init__(self, title, body, category, pub_date=None):
-        self.title = title
-        self.body = body
-        if pub_date is None:
-            pub_date = datetime.utcnow()
-        self.pub_date = pub_date
-        self.category = category
-
-    def __repr__(self):
-        return "<Post %r>" % self.title
-
-class Category(db.Model):
-
-    id = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.String(50))
-
-    def __init__(self, name):
-        self.name = name
-
-    def __repr__(self):
-        return "<Category %r>" % self.name
-"""
