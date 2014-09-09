@@ -46,7 +46,6 @@ class User(db.Model):
     password = db.Column(db.String(32))
 
     """
-        
         Define a relationship with the "Item" table.
 
         Gives the list of items read for that user.
@@ -86,7 +85,6 @@ class Feed(db.Model):
     link = db.Column(db.String(120))
 
     """
-
         Define a relationship with the "User" table.
 
         Gives the list of users associated to a feed.
@@ -137,7 +135,6 @@ class Item(db.Model):
     pub_date = db.Column(db.DateTime)
 
     """
-
         Define a relationship with the "Feed" table.
 
         Gives the list of items associated to that feed.
@@ -158,8 +155,6 @@ class Item(db.Model):
         self.link = link
         self.guid = guid
         self.guid_hash = guid_hash
-
-        # Expect the published date to be in YYYY-MM-DD format
         self.pub_date = datetime.strptime(pub_date, "%Y-%m-%d")
 
     def __repr__(self):
