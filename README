@@ -15,3 +15,5 @@ Links
 - http://stackoverflow.com/questions/12593421/sqlalchemy-and-flask-how-to-query-many-to-many-relationship
 - https://www.mail-archive.com/sqlalchemy@googlegroups.com/msg18611.html
 - http://stackoverflow.com/questions/10115092/sql-alchemy-return-list-of-ids
+- http://stackoverflow.com/questions/20060485/sqlalchemy-select-using-reverse-inclusive-not-in-list-of-child-column-values
+  
