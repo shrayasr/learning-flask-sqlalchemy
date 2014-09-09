@@ -13,11 +13,19 @@ UserFeeds = db.Table('user_feeds',
         db.Column('feed_id', db.Integer, db.ForeignKey('feed.id'))
         )
 
+UserReadItems = db.Table('user_read_items',
+        db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+        db.Column('item_id', db.Integer, db.ForeignKey('item.id'))
+        )
+
 class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True)
     password = db.Column(db.String(32))
+
+    items_read = db.relationship('Item', secondary=UserReadItems,
+            backref = db.backref('read_by', lazy='dynamic'))
 
     def __init__(self, email, password):
         self.email = email
@@ -59,7 +67,8 @@ class Item(db.Model):
     pub_date = db.Column(db.DateTime)
 
     feed = db.relationship('Feed', 
-            backref = db.backref('items', cascade='all, delete-orphan', lazy='dynamic'))
+            backref = db.backref('items', cascade='all, delete-orphan', 
+                lazy='dynamic'))
 
     def __init__(self, feed, title, description, link, guid, guid_hash, 
             pub_date):
