@@ -1,7 +1,7 @@
 ```
-+---------------------------+
-| Learning Flask-SQLAlchemy | & SQLAlchemy (sooome)
-+---------------------------+
++---------------------+
+| Learning SQLAlchemy | & Flask-SQLAlchemy (sooome)
++---------------------+
 ```
 
 Taking [rsswala](https://github.com/shrayas/rsswala) as a use case to learn [SQLAlchemy](http://www.sqlalchemy.org/) and [Flask-SQLAlchemy](https://pythonhosted.org/Flask-SQLAlchemy/). [Here](http://nbviewer.ipython.org/github/shrayasr/learning-flask-sqlalchemy/blob/master/Learning-Flask-SQLAlchemy.ipynb) is a link to the nbviewer of the iPython Notebook. 
