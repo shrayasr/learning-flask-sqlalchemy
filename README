@@ -2,8 +2,7 @@
 | Learning Flask-SQLAlchemy | & SQLAlchemy (sooome)
 +---------------------------+
 
-Taking https://github.com/shrayas/rsswala as a use case to learn SQLAlchemy and Flask-SQLAlchemy. Actually have learnt more 
-of SQLAlchemy that I have of Flask-SQLAlchemy :P There isn't even a web server running :D iPython-ing all the way!
+Taking https://github.com/shrayas/rsswala as a use case to learn SQLAlchemy and Flask-SQLAlchemy. Actually have learnt more of SQLAlchemy that I have of Flask-SQLAlchemy :P There isn't even a web server running :D iPython-ing all the way!
 
 * Viewer: http://nbviewer.ipython.org/github/shrayasr/learning-flask-sqlalchemy/blob/master/Learning-Flask-SQLAlchemy.ipynb
 * Must read: http://docs.sqlalchemy.org/en/rel_0_9/orm/tutorial.html
