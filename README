@@ -1,6 +1,9 @@
-Learning flask-sqlalchemy
++---------------------------+
+| Learning Flask-SQLAlchemy | & SQLAlchemy (sooome)
++---------------------------+
 
-Viewer: http://nbviewer.ipython.org/github/shrayasr/learning-flask-sqlalchemy/blob/master/Learning-Flask-SQLAlchemy.ipynb
+* Viewer: http://nbviewer.ipython.org/github/shrayasr/learning-flask-sqlalchemy/blob/master/Learning-Flask-SQLAlchemy.ipynb
+* Must read: http://docs.sqlalchemy.org/en/rel_0_9/orm/tutorial.html
 
 Links
 =====
@@ -19,3 +22,6 @@ Links
 - http://stackoverflow.com/questions/10115092/sql-alchemy-return-list-of-ids
 - http://stackoverflow.com/questions/20060485/sqlalchemy-select-using-reverse-inclusive-not-in-list-of-child-column-values
 - http://stackoverflow.com/questions/6329543/need-help-building-an-sqlalchemy-query-subquery
+- http://stackoverflow.com/questions/4186062/sqlalchemy-order-by-descending
+- http://martinfowler.com/eaaCatalog/unitOfWork.html
+- http://stackoverflow.com/questions/9477937/sqlalchemy-left-join-with-count
